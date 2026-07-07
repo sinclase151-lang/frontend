@@ -1,0 +1,5 @@
+{
+  "coordinador": { "documento": "1000000001", "password": "Admin123" },
+  "instructor": { "documento": "1000000002", "password": "Franco123" },
+  "aprendiz": { "documento": "1000000003", "password": "Jorge123" }
+}

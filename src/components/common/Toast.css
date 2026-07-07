@@ -1,0 +1,94 @@
+﻿/* ===============================================================
+   Toast.css
+   =============================================================== */
+
+.toast-card {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  min-width: 300px;
+  max-width: 450px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 12px 32px rgba(11, 36, 66, 0.25);
+  z-index: 9999;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* Animaciones */
+.toast-card.enter { animation: toast-slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.toast-card.exit { animation: toast-slide-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes toast-slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes toast-slide-out {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Variantes */
+.toast-card.success { border-left: 5px solid #238500; }
+.toast-card.success .toast-icon { color: #238500; }
+
+.toast-card.error { border-left: 5px solid #ef4444; }
+.toast-card.error .toast-icon { color: #ef4444; }
+
+.toast-card.warning { border-left: 5px solid #f5b400; }
+.toast-card.warning .toast-icon { color: #f5b400; }
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-message {
+  color: #0b2442;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  transition: all 0.2s;
+}
+.toast-close:hover { background: #f1f5f9; color: #0b2442; }
+
+/* Barra de progreso */
+.toast-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #f1f5f9;
+}
+
+.toast-progress-fill {
+  height: 100%;
+  width: 0%;
+  animation: toast-progress linear forwards;
+}
+
+.success .toast-progress-fill { background: #238500; }
+.error .toast-progress-fill { background: #ef4444; }
+.warning .toast-progress-fill { background: #f5b400; }
+
+@keyframes toast-progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+

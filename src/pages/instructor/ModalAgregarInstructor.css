@@ -1,0 +1,459 @@
+﻿/* ===============================================================
+   ModalAgregarInstructor.css - no toca fichas.css
+   =============================================================== */
+
+.mg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(3, 22, 39, 0.50);
+  backdrop-filter: blur(3px); 
+}
+
+.mg-modal-card {
+  width: min(100%, 540px);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* -- Encabezado ----------------------------------------------- */
+
+.mg-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mg-modal-tag {
+  display: block;
+  margin-bottom: 4px;
+  color: #238500;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mg-modal-title {
+  margin: 0;
+  color: #0b2442;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.mg-modal-subtitle {
+  margin: 4px 0 0;
+  color: #6f7d8d;
+  font-size: 13px;
+}
+
+.mg-modal-close {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #6f7d8d;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.mg-modal-close:hover {
+  background: #f3f7fb;
+  color: #0b2442;
+}
+
+/* -- Secciones ------------------------------------------------ */
+
+.mg-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mg-seccion-titulo {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0b2442;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mg-divider {
+  height: 1px;
+  background: #dfe5ec;
+}
+
+/* -- Lista instructores actuales ------------------------------ */
+
+.mg-actuales-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mg-actual-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.mg-actual-acciones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.mg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mg-badge.activo  { background: #dcfce7; color: #238500; }
+.mg-badge.inactivo { background: #f1f5f9; color: #475569; }
+
+.mg-estado-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #dfe5ec;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 150ms ease;
+  font-family: inherit;
+}
+
+.mg-estado-btn.desactivar:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #ef4444;
+}
+
+.mg-estado-btn.activar:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #238500;
+}
+
+.mg-estado-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* -- Buscador ------------------------------------------------- */
+
+.mg-modal-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #6f7d8d;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.mg-modal-search-wrap:focus-within {
+  border-color: #238500;
+  box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.1);
+}
+
+.mg-modal-search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b2442;
+  font-family: inherit;
+}
+
+.mg-modal-search::placeholder { color: #9ca8b4; }
+
+/* -- Lista disponibles ---------------------------------------- */
+
+.mg-modal-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.mg-modal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.mg-modal-item:hover  { background: #f0fdf4; border-color: #86efac; }
+.mg-modal-item.selected { background: #dcfce7; border-color: #238500; }
+
+.mg-modal-item input[type="radio"] {
+  accent-color: #238500;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+.mg-modal-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mg-modal-item-nombre {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2442;
+}
+
+.mg-modal-item-esp {
+  font-size: 12px;
+  color: #6f7d8d;
+}
+
+.mg-modal-empty {
+  padding: 16px 0;
+  text-align: center;
+  color: #6f7d8d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* -- Acciones ------------------------------------------------- */
+
+.mg-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.mg-btn-primary,
+.mg-btn-secondary {
+  min-height: 40px;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 150ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mg-btn-primary {
+  border: none;
+  background: #238500;
+  color: #ffffff;
+}
+
+.mg-btn-primary:hover:not(:disabled) { background: #238500; }
+.mg-btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.mg-btn-secondary {
+  border: 1px solid #dfe5ec;
+  background: #ffffff;
+  color: #0b2442;
+}
+
+.mg-btn-secondary:hover { background: #f3f7fb; }
+
+/* Botón líder en la tabla */
+.mg-btn-lider { color: #0b2442 !important; border-color: #bfdbfe !important; }
+.mg-btn-lider:hover { background: #eff6ff !important; border-color: #93c5fd !important; }
+
+/* -- Confirmacion con react-toastify -------------------------- */
+
+.Toastify__toast.mg-toast-shell {
+  width: min(420px, calc(100vw - 28px));
+  min-height: auto;
+  padding: 0;
+  border: 1px solid #e1e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 22px 50px rgba(9, 36, 68, 0.18);
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.mg-toast-body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mg-confirm-toast {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px;
+  border-left: 5px solid #ef4444;
+}
+
+.mg-confirm-toast.activar {
+  border-left-color: #238500;
+}
+
+.mg-confirm-toast-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #fce4e4;
+  color: #ef4444;
+}
+
+.mg-confirm-toast.activar .mg-confirm-toast-icon {
+  background: #edf9e7;
+  color: #238500;
+}
+
+.mg-confirm-toast-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.mg-confirm-toast-body strong {
+  color: #0b2442;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.mg-confirm-toast-body span {
+  color: #6d7c8d;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.mg-confirm-toast-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.mg-confirm-toast-actions button {
+  min-height: 34px;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.mg-confirm-toast-cancel {
+  border: 1px solid #d7e0ea;
+  background: #ffffff;
+  color: #0b2442;
+}
+
+.mg-confirm-toast-cancel:hover {
+  background: #f8fafc;
+  border-color: #b8c6d6;
+}
+
+.mg-confirm-toast-confirm {
+  border: 1px solid #ef4444;
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.mg-confirm-toast-confirm.inactivar:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.mg-confirm-toast-confirm.activar {
+  border-color: #238500;
+  background: #238500;
+}
+
+.mg-confirm-toast-confirm.activar:hover {
+  background: #1d6f00;
+  border-color: #1d6f00;
+}
+
+/* -- Responsive ----------------------------------------------- */
+
+@media (max-width: 540px) {
+  .mg-modal-card { padding: 18px; }
+  .mg-modal-title { font-size: 18px; }
+  .mg-modal-actions { flex-direction: column; }
+  .mg-btn-primary, .mg-btn-secondary { width: 100%; justify-content: center; }
+}
+
+/* Ajuste final: negrita solo en titulos/subtitulos del modal. */
+.mg-modal-item-nombre,
+.mg-modal-item-esp,
+.mg-badge,
+.mg-estado-btn,
+.mg-modal-search,
+.mg-modal-empty,
+.mg-btn-primary,
+.mg-btn-secondary,
+.mg-confirm-toast-body span,
+.mg-confirm-toast-actions button {
+  font-weight: 400 !important;
+}
+
+.mg-modal-title,
+.mg-modal-tag,
+.mg-seccion-titulo,
+.mg-confirm-toast-body strong {
+  font-weight: 800 !important;
+}

@@ -1,0 +1,589 @@
+﻿/* Shared SIMA interface rules */
+:root {
+  --sima-ui-text: #0b2442;
+  --sima-ui-muted: #38506b;
+  --sima-ui-border: #e1e8f0;
+  --sima-ui-row-border: #edf2f7;
+  --sima-ui-head-bg: #f8fafc;
+  --sima-ui-green: #238500;
+  --sima-ui-green-bg: #edf9e7;
+  --sima-ui-red: #ef4444;
+  --sima-ui-red-bg: #fce4e4;
+  --sima-ui-yellow: #f5b400;
+  --sima-ui-yellow-bg: #fdf2d0;
+  --sima-ui-card-shadow: 0 12px 28px rgba(9, 36, 68, 0.06);
+  --sima-ui-radius: 12px;
+  --sima-ui-font: "Segoe UI", Arial, sans-serif;
+}
+
+.coordinador-panel,
+.instructor-panel-v2,
+.grupos-page,
+.usuarios-page,
+.aprendices-page,
+.obs-page,
+.ca-page,
+.fichas-detail-page-v2 {
+  width: 100% !important;
+  color: var(--sima-ui-text) !important;
+  font-family: var(--sima-ui-font) !important;
+}
+
+.coordinador-card,
+.grupos-card,
+.usuarios-card,
+.aprendices-card,
+.obs-card,
+.fichas-panel,
+.asistencia-hero,
+.asistencia-list-card,
+.asistencia-summary-card,
+.asistencia-methods-card,
+.instructor-placeholder,
+.coordinador-novedades {
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: var(--sima-ui-radius) !important;
+  background: #ffffff !important;
+  box-shadow: var(--sima-ui-card-shadow) !important;
+}
+
+.dashboard-role-welcome,
+.grupos-header,
+.usuarios-header,
+.aprendices-header,
+.mis-grupos-header,
+.ca-page-header,
+.obs-page-header {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.dashboard-role-welcome h1,
+.grupos-header h1,
+.usuarios-header h1,
+.aprendices-header h1,
+.mis-grupos-header h1,
+.ca-page-title,
+.obs-page-header h1 {
+  color: var(--sima-ui-text) !important;
+  font-family: var(--sima-ui-font) !important;
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.grupos-header p,
+.usuarios-header p,
+.aprendices-header p,
+.mis-grupos-header p,
+.ca-page-description,
+.obs-page-header p {
+  color: #6b7a8b !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+}
+
+.grupos-toolbar,
+.usuarios-toolbar,
+.aprendices-toolbar,
+.mis-grupos-toolbar,
+.ca-filtros,
+.obs-filtros,
+.asistencia-toolbar {
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: var(--sima-ui-radius) !important;
+  background: #ffffff !important;
+  box-shadow: var(--sima-ui-card-shadow) !important;
+}
+
+.grupos-search,
+.usuarios-search,
+.aprendices-search,
+.gd-alertas-search,
+.ca-search-wrap,
+.obs-search,
+.asistencia-search {
+  min-height: 40px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 10px !important;
+  background: #f8fafc !important;
+  color: var(--sima-ui-muted) !important;
+}
+
+.grupos-search input,
+.usuarios-search input,
+.aprendices-search input,
+.gd-alertas-search input,
+.ca-search-wrap input,
+.obs-search input,
+.asistencia-search input {
+  color: var(--sima-ui-text) !important;
+  font-family: var(--sima-ui-font) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.grupos-search input::placeholder,
+.usuarios-search input::placeholder,
+.aprendices-search input::placeholder,
+.gd-alertas-search input::placeholder,
+.ca-search-wrap input::placeholder,
+.obs-search input::placeholder,
+.asistencia-search input::placeholder {
+  color: #8292a5 !important;
+  font-weight: 500 !important;
+}
+
+.grupos-select-filtro,
+.usuarios-select-filtro,
+.aprendices-select-filtro,
+.ca-select,
+.obs-select,
+.gd-alertas-toolbar select,
+.asistencia-toolbar select {
+  min-height: 40px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  font-family: var(--sima-ui-font) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.grupos-primary-btn,
+.usuarios-primary-btn,
+.aprendices-primary-btn,
+.ca-btn-primary,
+.obs-primary-btn,
+.coordinador-select-btn {
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 1px solid var(--sima-ui-green) !important;
+  border-radius: 10px !important;
+  background: var(--sima-ui-green) !important;
+  color: #ffffff !important;
+  font-family: var(--sima-ui-font) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.grupos-secondary-btn,
+.usuarios-secondary-btn,
+.aprendices-secondary-btn,
+.ca-btn-secondary,
+.obs-secondary-btn,
+.ghost {
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  font-family: var(--sima-ui-font) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.grupos-table,
+.usuarios-table,
+.aprendices-table,
+.asistencia-table,
+.instructor-groups-table,
+.gd-table,
+.ca-tabla,
+.obs-table table {
+  border-collapse: collapse !important;
+}
+
+.grupos-table th,
+.usuarios-table th,
+.aprendices-table th,
+.asistencia-table th,
+.instructor-groups-table th,
+.gd-table th,
+.ca-tabla th,
+.obs-table th {
+  padding: 12px 14px !important;
+  background: var(--sima-ui-head-bg) !important;
+  border-bottom: 1px solid var(--sima-ui-row-border) !important;
+  color: var(--sima-ui-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  font-weight: 800 !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.grupos-table td,
+.usuarios-table td,
+.aprendices-table td,
+.asistencia-table td,
+.instructor-groups-table td,
+.gd-table td,
+.ca-tabla td,
+.obs-table td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--sima-ui-row-border) !important;
+  color: var(--sima-ui-text) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+}
+
+.grupos-table tbody strong,
+.usuarios-table tbody strong,
+.aprendices-table tbody strong,
+.asistencia-table tbody strong,
+.instructor-groups-table tbody strong,
+.gd-table tbody strong,
+.ca-tabla tbody strong,
+.obs-table tbody strong {
+  font-weight: 400 !important;
+}
+
+.grupos-table tbody tr:hover,
+.usuarios-table tbody tr:hover,
+.aprendices-table tbody tr:hover,
+.asistencia-table tbody tr:hover,
+.instructor-groups-table tbody tr:hover,
+.gd-table tbody tr:hover,
+.ca-tabla tbody tr:hover,
+.obs-table tbody tr:hover {
+  background: #fafcff !important;
+}
+
+.grupos-card-header h2,
+.usuarios-card-header h2,
+.aprendices-card-header h2,
+.asistencia-list-card h2,
+.asistencia-summary-card h2,
+.asistencia-methods-card h2,
+.obs-card-header h2,
+.fichas-panel-header-actions h2 {
+  font-size: 17px !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important;
+  color: var(--sima-ui-text) !important;
+}
+
+.grupos-card-header p,
+.usuarios-card-header p,
+.aprendices-card-header p,
+.asistencia-list-card p,
+.asistencia-summary-card p,
+.obs-card-header p {
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  color: #6b7a8b !important;
+  font-weight: 600 !important;
+}
+
+.grupos-status,
+.usuarios-status,
+.aprendices-status,
+.asistencia-status,
+.badge,
+.badge-est,
+.badge-sev,
+.gd-badge,
+.gd-profile-status,
+.fichas-banner-badge,
+.usuarios-detail-status-pill,
+.aprendices-detail-status-pill {
+  min-height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  font-size: 11.5px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+}
+
+.grupos-status.activo,
+.usuarios-status,
+.aprendices-status,
+.badge-est--activa,
+.badge-est--abierta,
+.badge.leve,
+.badge.abierta {
+  background: var(--sima-ui-green-bg) !important;
+  color: var(--sima-ui-green) !important;
+}
+
+.grupos-status.suspendido,
+.badge.moderada,
+.gd-badge-medio {
+  background: var(--sima-ui-yellow-bg) !important;
+  color: var(--sima-ui-yellow) !important;
+}
+
+.grupos-status.cerrado,
+.badge.grave,
+.gd-badge-alto,
+.badge-est--cerrada {
+  background: var(--sima-ui-red-bg) !important;
+  color: var(--sima-ui-red) !important;
+}
+
+.grupos-icon-btn,
+.usuarios-icon-btn,
+.aprendices-icon-btn,
+.asistencia-icon-action,
+.instructor-table-actions button,
+.instructor-icon-btn,
+.gd-action-btn-icon,
+.ca-btn-action,
+.obs-icon-btn,
+.obs-table td button.obs-icon-btn,
+.nt-btn-action {
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  cursor: pointer !important;
+}
+
+.grupos-icon-btn:hover,
+.usuarios-icon-btn:hover,
+.aprendices-icon-btn:hover,
+.asistencia-icon-action:hover,
+.instructor-table-actions button:hover,
+.gd-action-btn-icon:hover,
+.ca-btn-action:hover,
+.obs-icon-btn:hover,
+.obs-table td button.obs-icon-btn:hover,
+.nt-btn-action:hover {
+  border-color: #c8d7e6 !important;
+  background: #f8fafc !important;
+}
+
+.grupos-actions,
+.usuarios-actions,
+.aprendices-actions,
+.instructor-table-actions,
+.obs-actions,
+.mis-grupos-list-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+
+.ca-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  padding: 13px 16px !important;
+  border-top: 1px solid var(--sima-ui-border) !important;
+  background: #fbfdff !important;
+}
+
+.ca-pagination-izq,
+.ca-pagination-der {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.ca-page-btn {
+  min-width: 34px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+}
+
+.ca-page-btn:hover:not(:disabled) {
+  background: #f3f7fb !important;
+  border-color: #93c5fd !important;
+}
+
+.ca-page-btn:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+}
+
+.ca-page-btn--active {
+  border-color: var(--sima-ui-green) !important;
+  background: var(--sima-ui-green) !important;
+  color: #ffffff !important;
+}
+
+.ca-page-dots,
+.ca-limite-label {
+  color: #6b7a8b !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+.ca-limite-select {
+  height: 32px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  padding: 0 10px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  font-family: inherit !important;
+}
+
+.sima-pagination,
+.grupos-pagination,
+.usuarios-pagination,
+.aprendices-pagination,
+.obs-pagination,
+.asistencia-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin: 12px 0 0 auto !important;
+  padding: 6px 8px 6px 14px !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  color: var(--sima-ui-text) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  box-shadow: 0 8px 18px rgba(9, 36, 68, 0.04) !important;
+}
+
+.sima-pagination > span,
+.grupos-pagination > span,
+.usuarios-pagination > span,
+.aprendices-pagination > span,
+.obs-pagination > span,
+.asistencia-pagination > span {
+  color: var(--sima-ui-text) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.sima-pagination-controls,
+.grupos-pagination > div,
+.usuarios-pagination > div,
+.aprendices-pagination > div,
+.obs-pagination-btns,
+.asistencia-pagination > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+}
+
+.sima-pagination button,
+.grupos-pagination button,
+.usuarios-pagination button,
+.aprendices-pagination button,
+.obs-pagination button,
+.asistencia-pagination button {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: 1px solid var(--sima-ui-border) !important;
+  border-radius: 8px !important;
+  background: #fbfdff !important;
+  color: var(--sima-ui-text) !important;
+  font-size: 0 !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease !important;
+}
+
+.sima-pagination button:hover:not(:disabled),
+.grupos-pagination button:hover:not(:disabled),
+.usuarios-pagination button:hover:not(:disabled),
+.aprendices-pagination button:hover:not(:disabled),
+.obs-pagination button:hover:not(:disabled),
+.asistencia-pagination button:hover:not(:disabled) {
+  border-color: #b8c5d6 !important;
+  background: #f8fafc !important;
+}
+
+.sima-pagination button:disabled,
+.grupos-pagination button:disabled,
+.usuarios-pagination button:disabled,
+.aprendices-pagination button:disabled,
+.obs-pagination button:disabled,
+.asistencia-pagination button:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
+.sima-pagination strong,
+.grupos-pagination strong,
+.usuarios-pagination strong,
+.aprendices-pagination strong,
+.obs-pagination strong,
+.asistencia-pagination strong {
+  color: var(--sima-ui-text) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 640px) {
+  .sima-pagination,
+  .grupos-pagination,
+  .usuarios-pagination,
+  .aprendices-pagination,
+  .obs-pagination,
+  .asistencia-pagination {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+

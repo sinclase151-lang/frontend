@@ -1,0 +1,75 @@
+﻿/* ===============================================================
+   badges.css - Estilos compartidos para BadgeSeveridad,
+                BadgeEstado y AvatarAprendiz
+   =============================================================== */
+
+/* -- Base pill ------------------------------------------------ */
+.badge-sev,
+.badge-est {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            5px;
+  min-height:     30px;
+  padding:        0 14px;
+  border-radius:  999px;
+  font-size:      12px;
+  font-weight:    900;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  white-space:    nowrap;
+  border:         none;
+}
+
+/* -- BadgeSeveridad - LEVE ------------------------------------ */
+.badge-sev--leve {
+  background: #edf9e7;
+  color:      #238500;
+}
+
+/* -- BadgeSeveridad - MODERADA -------------------------------- */
+.badge-sev--moderada {
+  background: #FEF3C7;
+  color:      #f5b400;
+}
+
+/* -- BadgeSeveridad - GRAVE ----------------------------------- */
+.badge-sev--grave {
+  background: #FEE2E2;
+  color:      #ef4444;
+}
+
+/* -- BadgeEstado - ABIERTA / ACTIVA --------------------------- */
+.badge-est--abierta,
+.badge-est--activa {
+  background: #edf9e7;
+  color:      #238500;
+}
+
+/* -- BadgeEstado - CERRADA ------------------------------------ */
+.badge-est--cerrada {
+  background: #FEE2E2;
+  color:      #ef4444;
+}
+
+/* -- BadgeEstado - EN_SEGUIMIENTO ----------------------------- */
+.badge-est--seguimiento {
+  background: #DBEAFE;
+  color:      #0b2442;
+}
+
+/* ===============================================================
+   AvatarAprendiz
+   =============================================================== */
+.avatar-aprendiz {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  border-radius:   50%;
+  color:           #fff;
+  font-weight:     800;
+  font-family:     system-ui, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing:  0.5px;
+  flex-shrink:     0;
+  user-select:     none;
+}
+

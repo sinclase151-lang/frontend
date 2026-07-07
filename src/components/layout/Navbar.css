@@ -1,0 +1,271 @@
+﻿.sima-navbar-main {
+  --sima-navy: #0b2442;
+  --sima-green: #238500;
+  --sima-border: #dfe6ee;
+  --sima-text: #0b2442;
+  --sima-muted: #667789;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 12px 28px 12px 154px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(223, 230, 238, 0.72);
+}
+
+.sima-navbar-main.navbar-instructor {
+  background: linear-gradient(180deg, var(--sima-navy) 0%, #0b2442 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 24px rgba(5, 45, 79, 0.18);
+}
+
+.sima-navbar-main.navbar-superadmin {
+  background: var(--sima-navy);
+  border-bottom-color: var(--sima-navy);
+  box-shadow: none;
+}
+
+.sima-navbar-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 0 0 auto;
+}
+
+.navbar-instructor .sima-navbar-icon,
+.navbar-instructor .profile-section,
+.navbar-instructor .profile-arrow {
+  color: #ffffff;
+}
+
+.navbar-instructor .sima-navbar-icon:hover {
+  color: var(--sima-green);
+}
+
+.navbar-instructor .profile-name {
+  color: #ffffff;
+}
+
+.navbar-instructor .profile-role {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.navbar-superadmin .profile-section,
+.navbar-superadmin .profile-arrow,
+.navbar-superadmin .profile-name,
+.navbar-superadmin .notif-btn {
+  color: #ffffff;
+}
+
+.navbar-superadmin .profile-role {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.navbar-superadmin .notif-btn:hover,
+.navbar-superadmin .notif-btn.active {
+  color: #8fd375;
+}
+
+.sima-navbar-icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--sima-text);
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.sima-navbar-icon:hover {
+  transform: translateY(-1px);
+  color: var(--sima-green);
+}
+
+.sima-navbar-badge {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #ffffff;
+  font-size: 0;
+}
+
+.profile-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 208px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--sima-text);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 180ms ease;
+}
+
+.profile-section:hover {
+  background: transparent;
+}
+
+.profile-avatar-circle {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 34%, #f4c09a 0 25%, transparent 26%),
+    linear-gradient(145deg, #0b2442 0 48%, #0c2e4f 49% 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  box-shadow: inset 0 -10px 0 rgba(57, 169, 0, 0.75);
+}
+/*perdidas*/
+.profile-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-name {
+  max-width: 132px;
+  overflow: hidden;
+  color: var(--sima-text);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-role {
+  color: var(--sima-muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.profile-arrow {
+  flex-shrink: 0;
+  color: var(--sima-text);
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 220px;
+  padding: 8px;
+  border: 1px solid var(--sima-border);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 38px rgba(9, 36, 68, 0.16);
+  z-index: 200;
+}
+
+.profile-menu button {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--sima-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.profile-menu button:hover {
+  background: #f3f7fb;
+  color: var(--sima-green);
+}
+
+.profile-menu hr {
+  margin: 6px 4px;
+  border: 0;
+  border-top: 1px solid #edf1f5;
+}
+
+.profile-menu .logout-btn {
+  color: #ef4444;
+}
+
+.profile-menu .logout-btn:hover {
+  background: #fff5f5;
+  color: #ef4444;
+}
+
+@media (max-width: 980px) {
+  .sima-navbar-main {
+    padding-left: 118px;
+  }
+
+  .profile-section {
+    min-width: auto;
+  }
+
+  .profile-info {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .sima-navbar-main {
+    min-height: 76px;
+    padding: 12px 14px 12px 106px;
+  }
+
+  .sima-navbar-right {
+    margin-left: auto;
+    gap: 9px;
+  }
+
+  .profile-avatar-circle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .sima-navbar-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .profile-arrow {
+    display: none;
+  }
+}
+
+

@@ -1,0 +1,222 @@
+.superadmin-panel .superadmin-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.superadmin-executive-hero {
+  min-height: 168px;
+  margin-top: -16px;
+  margin-bottom: -58px;
+  padding: 26px 24px 76px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 0 0 12px 12px;
+  background: #0b2442;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(9, 36, 68, .12);
+}
+
+.superadmin-executive-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.superadmin-executive-title h1 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+.superadmin-executive-title span {
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .1);
+  color: #dce7f1;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.superadmin-executive-hero p {
+  margin: 8px 0 0;
+  color: #d2deea;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.superadmin-executive-hero time {
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.superadmin-executive-kpis {
+  position: relative;
+  z-index: 1;
+  padding: 0 14px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card {
+  min-width: 0;
+  min-height: 150px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(9, 36, 68, .09);
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card:first-child,
+.superadmin-executive-kpis .coordinador-kpi-card:last-child {
+  border-radius: 12px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-ring {
+  width: 44px;
+  height: 44px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-ring::after {
+  width: 24px;
+  height: 24px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card h2 {
+  margin: 8px 0 10px;
+  font-size: 12px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card strong {
+  font-size: 25px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card p {
+  font-size: 10px;
+}
+
+.superadmin-executive-kpis .coordinador-kpi-card small {
+  font-size: 10px;
+}
+
+.superadmin-overview-grid,
+.superadmin-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(320px, 1fr);
+  gap: 18px;
+}
+
+.superadmin-role-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.superadmin-role-list .coordinador-registro-item > strong {
+  font-size: 20px;
+}
+
+.superadmin-risk-layout {
+  min-height: 205px;
+}
+
+.superadmin-line-chart {
+  min-height: 245px;
+}
+
+.superadmin-chart-area {
+  fill: url(#superadminArea);
+}
+
+.superadmin-chart-line {
+  stroke: #238500;
+}
+
+.superadmin-line-chart circle {
+  fill: #238500;
+}
+
+.superadmin-security-panel .coordinador-card-header > svg {
+  color: #238500;
+}
+
+.superadmin-security-list .coordinador-estado-row:last-child {
+  border-bottom: 0;
+}
+
+.superadmin-security-list .unavailable {
+  color: #8b98a6;
+  font-size: 12px;
+}
+
+.superadmin-security-note {
+  margin: 12px 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: #8a6600;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .superadmin-panel .superadmin-kpi-row {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .superadmin-executive-kpis .coordinador-kpi-card,
+  .superadmin-executive-kpis .coordinador-kpi-card:first-child,
+  .superadmin-executive-kpis .coordinador-kpi-card:last-child {
+    border-radius: 10px;
+  }
+
+  .superadmin-overview-grid,
+  .superadmin-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .superadmin-executive-hero {
+    margin-top: -14px;
+  }
+
+  .superadmin-panel .superadmin-kpi-row,
+  .superadmin-role-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .superadmin-executive-hero {
+    padding: 20px 18px 72px;
+    flex-direction: column;
+  }
+
+  .superadmin-executive-title h1 {
+    font-size: 21px;
+  }
+
+  .superadmin-panel .superadmin-kpi-row,
+  .superadmin-role-list {
+    grid-template-columns: 1fr;
+  }
+}

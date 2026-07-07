@@ -1,0 +1,453 @@
+﻿.login-sima-container {
+  --sima-navy: #0b2442;
+  --sima-navy-2: #07385f;
+  --sima-green: #238500;
+  --sima-green-dark: #238500;
+  --sima-cyan: #0b2442;
+  --sima-gold: #f8c008;
+  --sima-text: #0b2442;
+  --sima-muted: #6f7d8d;
+  --sima-border: #dfe5ec;
+  --sima-panel: #ffffff;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  margin-left: calc((100% - 100vw) / 2);
+  display: grid;
+  grid-template-columns: minmax(520px, 49%) minmax(440px, 51%);
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--sima-text);
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: left;
+}
+
+.login-sima-hero {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: clamp(46px, 6vh, 66px) clamp(34px, 5vw, 72px) clamp(28px, 4vh, 42px) clamp(46px, 5.4vw, 88px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 82%, rgba(57, 169, 0, 0.48), transparent 32%),
+    linear-gradient(180deg, rgba(5, 45, 79, 0.9), rgba(5, 45, 79, 0.96)),
+    linear-gradient(140deg, var(--sima-navy), var(--sima-navy-2));
+  border-top-right-radius: 165px;
+  border-bottom-right-radius: 165px;
+  color: #ffffff;
+}
+
+.login-sima-hero::after {
+  content: none;
+}
+
+.login-sima-brand {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+}
+
+.login-sima-brand-logo {
+  width: clamp(94px, 9.2vw, 116px);
+  height: auto;
+  display: block;
+}
+
+.login-sima-copy {
+  position: relative;
+  z-index: 4;
+  max-width: min(410px, 50%);
+  margin-top: clamp(48px, 8vh, 82px);
+}
+
+.login-sima-eyebrow {
+  margin-bottom: 14px;
+  color: #ffffff;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 600;
+}
+
+.login-sima-copy h1 {
+  margin: 0 0 26px;
+  color: #ffffff;
+  font-size: clamp(34px, 3.45vw, 50px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.login-sima-copy h1 span {
+  color: var(--sima-green);
+}
+
+.login-sima-copy p:last-child {
+  max-width: 360px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(17px, 1.42vw, 21px);
+  line-height: 1.48;
+}
+
+.login-sima-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.login-sima-students-image {
+  position: absolute;
+  right: clamp(-72px, -5vw, -34px);
+  bottom: 0;
+  width: min(44vw, 590px);
+  max-width: none;
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.24));
+}
+
+.login-sima-panel {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(20px, 3.5vh, 34px);
+  padding: clamp(54px, 7vh, 72px) clamp(28px, 5vw, 72px) clamp(22px, 3vh, 34px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.92)),
+    radial-gradient(circle at 84% 18%, rgba(57, 169, 0, 0.08), transparent 28%);
+}
+
+.login-sima-help {
+  position: absolute;
+  top: clamp(28px, 5vh, 46px);
+  right: clamp(28px, 6vw, 78px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--sima-text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-sima-help svg {
+  color: var(--sima-text);
+}
+
+.login-sima-card {
+  width: min(100%, 520px);
+  padding: clamp(30px, 4.2vh, 44px) clamp(30px, 4vw, 48px);
+  border: 1px solid var(--sima-border);
+  border-radius: 18px;
+  background: var(--sima-panel);
+  box-shadow: 0 22px 42px rgba(9, 36, 68, 0.12);
+}
+
+.login-sima-title {
+  margin: 0 0 8px;
+  color: var(--sima-text);
+  font-size: clamp(29px, 3vw, 38px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.login-sima-subtitle {
+  margin-bottom: 28px;
+  color: #596879;
+  font-size: 17px;
+}
+
+.login-sima-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-sima-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-sima-label {
+  color: var(--sima-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.login-sima-input-wrap {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 16px;
+  border: 1px solid #cfd6df;
+  border-radius: 8px;
+  background: #ffffff;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.login-sima-input-wrap:focus-within {
+  border-color: var(--sima-green);
+  box-shadow: 0 0 0 4px rgba(57, 169, 0, 0.13);
+}
+
+.login-sima-input-wrap svg {
+  flex: 0 0 auto;
+  color: #566577;
+}
+
+.login-sima-input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--sima-text);
+  font-size: 16px;
+}
+
+.login-sima-input::placeholder {
+  color: #8a95a3;
+}
+
+.login-sima-password-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #566577;
+  cursor: pointer;
+}
+
+.login-sima-password-btn:hover {
+  background: #f2f5f7;
+}
+
+.login-sima-link {
+  align-self: flex-end;
+  margin-top: -10px;
+  border: 0;
+  background: transparent;
+  color: #0b2442;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-sima-link:hover {
+  color: var(--sima-green-dark);
+  text-decoration: underline;
+}
+
+.login-sima-message {
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 100, 155, 0.22);
+  border-radius: 8px;
+  background: rgba(0, 100, 155, 0.08);
+  color: var(--sima-text);
+  font-size: 14px;
+}
+
+.login-sima-btn,
+.login-sima-register-btn {
+  width: 100%;
+  height: 58px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.login-sima-btn {
+  border: 0;
+  background: linear-gradient(180deg, var(--sima-green), var(--sima-green-dark));
+  color: #ffffff;
+  box-shadow: 0 10px 18px rgba(35, 133, 0, 0.18);
+}
+
+.login-sima-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 22px rgba(35, 133, 0, 0.24);
+}
+
+.login-sima-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #7a8592;
+  font-size: 16px;
+}
+
+.login-sima-divider::before,
+.login-sima-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d7dde5;
+}
+
+.login-sima-register-btn {
+  border: 1px solid var(--sima-green);
+  background: #ffffff;
+  color: #238500;
+}
+
+.login-sima-register-btn:hover {
+  background: rgba(57, 169, 0, 0.07);
+}
+
+.login-sima-footer {
+  width: min(100%, 730px);
+  display: grid;
+  grid-template-columns: minmax(210px, 1fr) auto;
+  align-items: end;
+  gap: 24px;
+  color: #5f6b79;
+  font-size: 14px;
+}
+
+.login-sima-secure {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 320px;
+}
+
+.login-sima-secure svg {
+  flex: 0 0 auto;
+  color: var(--sima-green-dark);
+}
+
+.login-sima-legal {
+  text-align: right;
+}
+
+.login-sima-legal div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.login-sima-legal a {
+  color: #0b2442;
+  text-decoration: none;
+}
+
+.login-sima-legal a:hover {
+  text-decoration: underline;
+}
+
+.login-sima-legal p {
+  margin: 0;
+}
+
+@media (max-width: 1080px) {
+  .login-sima-container {
+    grid-template-columns: 1fr;
+  }
+
+  .login-sima-hero {
+    min-height: 430px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 92px;
+  }
+
+  .login-sima-copy {
+    max-width: 58%;
+    margin-top: 46px;
+  }
+
+  .login-sima-students-image {
+    left: auto;
+    right: -36px;
+    width: min(48vw, 410px);
+    opacity: 0.72;
+  }
+
+  .login-sima-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .login-sima-container {
+    background: #f8fafc;
+  }
+
+  .login-sima-hero {
+    min-height: 330px;
+    padding: 34px 24px 54px;
+    border-bottom-right-radius: 62px;
+  }
+
+  .login-sima-brand-logo {
+    width: 76px;
+  }
+
+  .login-sima-copy {
+    margin-top: 38px;
+  }
+
+  .login-sima-copy h1 {
+    font-size: 32px;
+  }
+
+  .login-sima-copy p:last-child {
+    font-size: 17px;
+  }
+
+  .login-sima-students-image {
+    display: none;
+  }
+
+  .login-sima-panel {
+    gap: 28px;
+    padding: 74px 18px 28px;
+  }
+
+  .login-sima-help {
+    top: 26px;
+    right: 20px;
+    font-size: 14px;
+  }
+
+  .login-sima-card {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .login-sima-title {
+    font-size: 28px;
+  }
+
+  .login-sima-footer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .login-sima-legal,
+  .login-sima-legal div {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+

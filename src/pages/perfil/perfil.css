@@ -1,0 +1,344 @@
+﻿.perfil-page {
+  --sima-navy: #0b2442;
+  --sima-green: #238500;
+  --sima-green-dark: #238500;
+  --sima-text: #0b2442;
+  --sima-muted: #6b7a8b;
+  --sima-border: #e1e8f0;
+
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--sima-text);
+}
+
+.perfil-hero {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--sima-border);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--sima-text);
+  box-shadow: 0 12px 28px rgba(9, 36, 68, 0.06);
+}
+
+.perfil-avatar-wrap {
+  position: relative;
+}
+
+.perfil-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf9e7;
+  border: 1px solid #d7ecd8;
+  color: var(--sima-green-dark);
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-photo-menu {
+  position: absolute;
+  left: 2px;
+  top: calc(100% + 10px);
+  width: 238px;
+  z-index: 20;
+  overflow: hidden;
+  border: 1px solid #e1e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 18px 34px rgba(9, 36, 68, 0.18);
+  color: #0b2442;
+}
+
+.perfil-photo-menu label,
+.perfil-photo-menu button {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 1px solid #edf2f7;
+  background: #ffffff;
+  color: #0b2442;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.perfil-photo-menu button {
+  border-bottom: 0;
+}
+
+.perfil-photo-menu input {
+  display: none;
+}
+
+.perfil-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--sima-green-dark);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.perfil-hero-copy h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.perfil-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.perfil-hero-copy p {
+  margin: 6px 0 0;
+  color: var(--sima-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.perfil-area-pill {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: var(--sima-text);
+  border: 1px solid var(--sima-border);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.perfil-hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.perfil-primary-btn,
+.perfil-secondary-btn {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.perfil-primary-btn {
+  background: linear-gradient(180deg, var(--sima-green), var(--sima-green-dark));
+  color: #ffffff;
+}
+
+.perfil-secondary-btn {
+  background: #ffffff;
+  color: #0b2442;
+  border: 1px solid #d7e0ea;
+}
+
+.perfil-icon-edit-btn {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7e0ea;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0b2442;
+  cursor: pointer;
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+}
+
+.perfil-card {
+  padding: 18px;
+  border: 1px solid var(--sima-border);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(9, 36, 68, 0.06);
+}
+
+.perfil-card-main {
+  grid-row: span 2;
+}
+
+.perfil-card h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.perfil-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.perfil-field {
+  padding: 14px;
+  border: 1px solid var(--sima-border);
+  border-radius: 10px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.perfil-field-full {
+  grid-column: 1 / -1;
+}
+
+.perfil-field span {
+  color: #627284;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.perfil-field strong {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.perfil-field input {
+  min-height: 38px;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0 11px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2442;
+}
+
+.perfil-security-row,
+.perfil-role-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.perfil-security-row:last-child,
+.perfil-role-item:last-child {
+  border-bottom: 0;
+}
+
+.perfil-security-row strong,
+.perfil-role-item strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.perfil-security-row span,
+.perfil-role-item span {
+  color: #667789;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.perfil-security-form {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.perfil-security-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.perfil-security-form label span {
+  font-size: 12px;
+  font-weight: 900;
+  color: #627284;
+  text-transform: uppercase;
+}
+
+.perfil-security-form input {
+  min-height: 38px;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0 11px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2442;
+}
+
+@media (max-width: 960px) {
+  .perfil-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .perfil-avatar-wrap {
+    justify-self: center;
+  }
+
+  .perfil-hero-meta {
+    justify-content: center;
+  }
+
+  .perfil-hero-actions {
+    justify-content: center;
+  }
+
+  .perfil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-card-main {
+    grid-row: auto;
+  }
+
+  .perfil-fields {
+    grid-template-columns: 1fr;
+  }
+}
+

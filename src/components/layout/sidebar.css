@@ -1,0 +1,226 @@
+﻿.sima-sidebar-main {
+  --sidebar-width: 128px;
+  --sima-navy: #0b2442;
+  --sima-navy-deep: #0b2442;
+  --sima-green: #238500;
+
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 120;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  background: #ffffff;
+  border-right: 1px solid #dde4ec;
+  color: #ffffff;
+  box-shadow: 8px 0 26px rgba(5, 45, 79, 0.1);
+}
+
+.sima-sidebar-main::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 112px;
+  z-index: 0;
+  width: 106px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(180deg, var(--sima-navy) 0%, var(--sima-navy-deep) 100%);
+  border-radius: 0 0 62px 0;
+  box-shadow: 10px 0 22px rgba(5, 45, 79, 0.12);
+  pointer-events: none;
+}
+
+.sima-sidebar-shell {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 68px;
+  margin-bottom: 106px;
+  padding: 112px 0 76px;
+}
+
+.sima-sidebar-nav {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px 26px 0;
+}
+
+.sima-nav-link {
+  width: 76px;
+  min-height: 62px;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.96);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.sima-nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.sima-nav-link.active {
+  background: #ffffff;
+  color: var(--sima-green);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+}
+
+.sima-nav-link.active .icon-container {
+  background: rgba(57, 169, 0, 0.1);
+}
+
+.sima-nav-link svg {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.sima-sidebar-footer {
+  width: 100%;
+  min-height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px 22px;
+  background: #ffffff;
+}
+
+.sima-sidebar-footer-logo {
+  width: 72px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-height: 760px) {
+  .sima-sidebar-main::before {
+    top: 0;
+    bottom: 88px;
+    width: 102px;
+    border-radius: 0 0 54px 0;
+  }
+
+  .sima-sidebar-shell {
+    margin-top: 54px;
+    margin-bottom: 88px;
+    padding-top: 88px;
+    padding-bottom: 64px;
+  }
+
+  .sima-sidebar-nav {
+    gap: 7px;
+  }
+
+  .sima-nav-link {
+    min-height: 54px;
+    font-size: 10px;
+  }
+
+  .icon-container {
+    width: 29px;
+    height: 29px;
+  }
+
+  .sima-nav-link svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sima-sidebar-footer {
+    min-height: 96px;
+  }
+}
+
+@media (max-width: 860px) {
+  .sima-sidebar-main {
+    --sidebar-width: 96px;
+  }
+
+  .sima-sidebar-main::before {
+    top: 0;
+    bottom: 88px;
+    width: 84px;
+    border-radius: 0 0 48px 0;
+  }
+
+  .sima-sidebar-shell {
+    margin-top: 56px;
+    margin-bottom: 88px;
+    padding: 92px 0 62px;
+  }
+
+  .sima-sidebar-nav {
+    width: calc(100% - 12px);
+    gap: 8px;
+    padding: 0 12px 18px 0;
+  }
+
+  .sima-nav-link {
+    width: 64px;
+    min-height: 56px;
+    font-size: 9px;
+    border-radius: 10px;
+  }
+
+  .icon-container {
+    width: 28px;
+    height: 28px;
+  }
+
+  .sima-nav-link svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .sima-sidebar-footer {
+    min-height: 88px;
+    padding: 10px 10px 18px;
+  }
+
+  .sima-sidebar-footer-logo {
+    width: 56px;
+  }
+
+}
+
