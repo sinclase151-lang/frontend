@@ -22,7 +22,7 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
         cy.get('input[placeholder="Numero de cedula"]').type(`1${sufijo}`);
         cy.get('input[placeholder="usuario@misena.edu.co"]').type(`laura.${sufijo}@misena.edu.co`);
         cy.get('input[placeholder="Numero de celular"]').should('be.enabled').type('3001234567');
-        
+
         cy.get('select').eq(1).select('instructor');
         cy.contains('button', 'Guardar usuario').click();
       });
@@ -41,7 +41,7 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
         cy.get('select').eq(1).select('instructor');
         cy.contains('button', 'Guardar usuario').click();
       });
-      
+
       cy.get('.usuarios-alert.info').should('be.visible');
     });
 
@@ -82,7 +82,7 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
     });
 
     it('Filtra usuarios por nombre, documento o correo', () => {
-      
+
       cy.get('input[placeholder="Buscar por nombre, documento o correo"]').type('Franco{enter}');
       cy.get('[data-testid="users-table"] tbody tr').should('contain.text', 'Franco');
     });
@@ -93,7 +93,7 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
     });
 
     it('Filtra usuarios por estado', () => {
-      
+
       cy.get('[data-testid="users-filter-status"]').select('ACTIVO');
       cy.get('[data-testid="users-table"] tbody tr').each(($tr) => {
         cy.wrap($tr).find('[data-testid="users-status-badge"]').should('contain.text', 'ACTIVO');
@@ -194,4 +194,3 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
   });
 
 });
-
