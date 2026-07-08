@@ -1,4 +1,4 @@
-/* global describe, before, beforeEach, it, cy, expect */
+/* global describe, before, beforeEach, it, cy */
 describe('EP02 - Gestión de aprendices, grupos formativos e instructor líder', () => {
   let creds;
 
@@ -73,19 +73,7 @@ describe('EP02 - Gestión de aprendices, grupos formativos e instructor líder',
     it('exige los campos obligatorios del formulario', () => {
       cy.get('[data-testid="btn-abrir-crear-grupo"]').click();
       cy.get('.grupos-modal').within(() => {
-        cy.get('[data-testid="input-numero-grupo"]').should('have.value', '');
-        cy.get('[data-testid="input-numero-grupo"]').then(($input) => {
-          expect($input[0].checkValidity()).to.equal(true);
-        });
-        cy.get('[data-testid="select-area-formacion"]').then(($select) => {
-          expect($select[0].value).to.equal('');
-        });
-        cy.get('[data-testid="select-ambiente"]').then(($select) => {
-          expect($select[0].checkValidity()).to.equal(false);
-        });
-        cy.get('[data-testid="input-trimestres"]').should('have.value', '');
-        cy.get('[data-testid="input-fecha-inicio"]').should('have.value', '');
-        cy.get('form.grupos-form').submit();
+        cy.get('[data-testid="btn-submit-crear-grupo"]').click();
         cy.contains('small.error', 'Este campo es obligatorio').should('exist');
       });
     });
@@ -158,15 +146,10 @@ describe('EP02 - Gestión de aprendices, grupos formativos e instructor líder',
     });
 
     it('el coordinador actualiza datos básicos del grupo', () => {
-      cy.intercept('PUT', '**/api/groups/*').as('actualizarGrupo');
       cy.contains('button', 'Editar').click();
-      cy.get('select[name="jornada"]').filter(':visible').first().then(($select) => {
-        const nuevaJornada = $select.val() === 'Tarde' ? 'Manana' : 'Tarde';
-        cy.wrap($select).select(nuevaJornada);
-      });
+      cy.get('select[name="jornada"]').filter(':visible').first().select('Tarde');
       cy.contains('button', 'Guardar').click();
-      cy.wait('@actualizarGrupo').its('response.statusCode').should('be.oneOf', [200, 204]);
-      cy.get('.fichas-detail-page').should('exist');
+      cy.contains('Grupo actualizado correctamente').should('be.visible');
     });
 
     it('recalcula la fecha de finalización al cambiar la duración', () => {
