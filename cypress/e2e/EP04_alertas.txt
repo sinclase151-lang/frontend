@@ -1,4 +1,4 @@
-describe('EP04 - Gestion de alertas tempranas y riesgos formativos', () => {
+describe('EP04 - Gestion de alertass tempranas y riesgos formativos', () => {
   let creds;
 
   before(() => {
