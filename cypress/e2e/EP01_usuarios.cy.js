@@ -5,7 +5,7 @@ describe('EP01 - Gestión de usuarios, autenticación y control de acceso por ro
     cy.fixture('credenciales').then((data) => { creds = data; });
   });
 
-  // ── H01: Crear usuario institucional ────────────────────────────────
+  // ── H01: Crear usuario institucional correcto────────────────────────────────
   describe('H01 - Crear usuario institucional', () => {
     beforeEach(() => {
       cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
