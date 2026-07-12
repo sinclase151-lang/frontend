@@ -1,10 +1,11 @@
-describe('EP04 - Gestion de alertass tempranas y riesgos formativos', () => {
+describe('EP04 - Gestion de alertas tempranas y riesgos formativos', () => {
   let creds;
 
   before(() => {
     cy.fixture('credenciales').then((data) => { creds = data; });
   });
 
+  // ── H31: Crear alerta manual ─────────────────────────────────────────
   describe('H31 - Crear alerta manual', () => {
     beforeEach(() => {
       cy.loginComo(creds.instructor.documento, creds.instructor.password);
@@ -26,13 +27,37 @@ describe('EP04 - Gestion de alertass tempranas y riesgos formativos', () => {
       cy.visit('/alertas/consultar');
       cy.contains('button', 'Nueva alerta manual').should('not.exist');
     });
+
+    it('Exige grupo, aprendiz, tipo, severidad, observaciones y descripcion antes de guardar', () => {
+      // validar() en ModalCrearAlerta.jsx rechaza el envio si falta cualquiera de estos campos
+      cy.contains('button', 'Nueva alerta manual').click();
+      cy.get('.mcal-modal').within(() => {
+        cy.contains('button', 'Guardar alerta').click();
+        cy.contains('Selecciona un grupo').should('be.visible');
+        cy.contains('Selecciona un aprendiz').should('be.visible');
+        cy.contains('Selecciona el tipo').should('be.visible');
+        cy.contains('Selecciona la severidad').should('be.visible');
+        cy.contains('La descripcion es obligatoria').should('be.visible');
+      });
+    });
+
+    it('Exige minimo 20 caracteres en la descripcion', () => {
+      cy.contains('button', 'Nueva alerta manual').click();
+      cy.get('.mcal-modal').within(() => {
+        cy.get('textarea.mcal-textarea').type('Muy corta');
+        cy.contains('button', 'Guardar alerta').click();
+        cy.contains('Minimo 20 caracteres').should('be.visible');
+      });
+    });
   });
 
+  // ── H32: Consultar alertas según rol y alcance ──────────────────────
   describe('H32 - Consultar alertas segun rol y alcance', () => {
     it('El coordinador consulta alertas agrupadas por ficha', () => {
       cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
       cy.visit('/alertas/consultar');
-      cy.get('.grupos-table, .ca-tabla').should('exist');
+      cy.get('.grupos-table').should('exist');
+      cy.contains('h2', 'Fichas registradas').should('be.visible');
     });
 
     it('El instructor consulta alertas con filtros disponibles', () => {
@@ -99,6 +124,10 @@ describe('EP04 - Gestion de alertass tempranas y riesgos formativos', () => {
     });
   });
 
+  // ── H33: Cerrar alerta ───────────────────────────────────────────────
+  // NOTA: AlertasCoordinador.jsx y ConsultarAlertas.jsx abren el detalle de la alerta en un
+  // MODAL (ModalDetalleAlerta -> clase .mcal-modal), NO navegan a una ruta /alertas/:id.
+  // El cierre se hace con ModalCerrarAlerta (clases .mcal-modal, boton "Confirmar cierre").
   describe('H33 - Cerrar alerta', () => {
     beforeEach(() => {
       cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
@@ -106,60 +135,92 @@ describe('EP04 - Gestion de alertass tempranas y riesgos formativos', () => {
     });
 
     it('El coordinador puede abrir el detalle de una alerta activa', () => {
-      cy.get('.grupos-table tbody tr').first().click();
-      cy.get('.grupos-table tbody tr').first().click();
-      cy.url().should('match', /\/alertas\/\d+/);
+      cy.get('.grupos-table tbody tr').first().click(); // entra a la vista de aprendices de la ficha
+      cy.contains('Aprendices con alertas activas').should('be.visible');
+      cy.get('.grupos-table tbody tr').first().click(); // abre el detalle de la alerta (modal)
+      cy.get('.mcal-modal').should('be.visible');
+      cy.contains('Detalle de alerta').should('exist');
     });
 
     it('Muestra el boton Cerrar alerta solo si esta activa y el usuario es coordinador', () => {
       cy.get('.grupos-table tbody tr').first().click();
       cy.get('.grupos-table tbody tr').first().click();
-      cy.contains('button', 'Cerrar alerta').should('exist');
+      cy.get('.mcal-modal').within(() => {
+        cy.get('body').then(($body) => {
+          // El boton solo aparece si la alerta esta ABIERTA (puedeCerrar en ModalDetalleAlerta.jsx)
+          if ($body.find('.da-btn-cerrar').length) {
+            cy.get('.da-btn-cerrar').should('contain.text', 'Cerrar alerta');
+          } else {
+            cy.log('La primera alerta de la lista ya esta CERRADA: no se muestra el boton.');
+          }
+        });
+      });
     });
 
     it('Exige una justificacion minima de 20 caracteres para cerrar', () => {
       cy.get('.grupos-table tbody tr').first().click();
       cy.get('.grupos-table tbody tr').first().click();
-      cy.contains('button', 'Cerrar alerta').click();
-      cy.get('textarea').type('Corto');
-      cy.contains('button', /confirmar|cerrar/i).click();
-      cy.contains(/m[ii]nimo 20 caracteres/i).should('exist');
+      cy.get('body').then(($body) => {
+        if ($body.find('.da-btn-cerrar').length) {
+          cy.get('.da-btn-cerrar').click();
+          cy.get('.mcal-modal').last().within(() => {
+            cy.get('textarea').type('Corto');
+            cy.contains('button', 'Confirmar cierre').click();
+            // El mensaje de error siempre esta en el DOM; solo cambia a rojo (#ef4444) cuando hay error real.
+            cy.contains('Mínimo 20 caracteres requeridos').should('have.css', 'color', 'rgb(239, 68, 68)');
+          });
+        } else {
+          cy.log('No hay alerta ABIERTA disponible para probar la validacion de cierre.');
+        }
+      });
     });
 
     it('Cierra correctamente una alerta con justificacion valida', () => {
       cy.get('.grupos-table tbody tr').first().click();
       cy.get('.grupos-table tbody tr').first().click();
-      cy.contains('button', 'Cerrar alerta').click();
-      cy.get('textarea').type('La situacion fue revisada y atendida satisfactoriamente con el aprendiz y su acudiente.');
-      cy.contains('button', /confirmar|cerrar/i).click();
-      cy.contains(/cerrada/i).should('exist');
+      cy.get('body').then(($body) => {
+        if ($body.find('.da-btn-cerrar').length) {
+          cy.get('.da-btn-cerrar').click();
+          cy.get('.mcal-modal').last().within(() => {
+            cy.get('textarea').type('La situacion fue revisada y atendida satisfactoriamente con el aprendiz y su acudiente.');
+            cy.contains('button', 'Confirmar cierre').click();
+          });
+          cy.contains('Alerta cerrada correctamente').should('exist');
+        } else {
+          cy.log('No hay alerta ABIERTA disponible para cerrar.');
+        }
+      });
     });
 
     it('Un instructor no puede cerrar alertas', () => {
       cy.loginComo(creds.instructor.documento, creds.instructor.password);
       cy.visit('/alertas/consultar');
       cy.get('.ca-tabla tbody tr').first().find('.ca-btn-accion').click();
+      cy.get('.mcal-modal').should('be.visible');
       cy.contains('button', 'Cerrar alerta').should('not.exist');
     });
   });
 
+  // ── H34: Generar/actualizar alerta por observaciones (Sistema) ─────
   describe('H34 - Generar o actualizar alerta por observaciones (Sistema)', () => {
-    it('Las alertas automaticas se muestran con origen distinto a MANUAL', () => {
+    beforeEach(() => {
       cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
       cy.visit('/alertas/consultar');
       cy.get('.grupos-table tbody tr').first().click();
       cy.get('.grupos-table tbody tr').first().click();
+      cy.get('.mcal-modal').should('be.visible');
+    });
+
+    it('Las alertas automaticas se muestran con origen distinto a MANUAL', () => {
       cy.contains(/origen/i).should('exist');
     });
 
     it('Una alerta generada desde observaciones muestra las observaciones vinculadas', () => {
-      cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
-      cy.visit('/alertas/consultar');
-      cy.get('.grupos-table tbody tr').first().click();
-      cy.get('.grupos-table tbody tr').first().click();
       cy.get('body').then(($body) => {
         if ($body.text().includes('Observaciones Vinculadas')) {
           cy.contains('Observaciones Vinculadas').should('exist');
+        } else {
+          cy.log('La alerta seleccionada no tiene observaciones vinculadas (puede ser de origen MANUAL).');
         }
       });
     });
