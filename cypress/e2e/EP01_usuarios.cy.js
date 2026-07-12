@@ -1,4 +1,3 @@
-/* global describe, before, beforeEach, it, cy, expect */
 describe('EP01 - Gestión de usuarios, autenticación y control de acceso por roles', () => {
   let creds;
 
