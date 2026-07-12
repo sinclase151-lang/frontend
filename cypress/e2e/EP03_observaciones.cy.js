@@ -79,6 +79,19 @@ describe('EP03 - Gestión de observaciones formativas de aprendices', () => {
       cy.get('select').first().select(1);
       cy.get('.obs-table').should('exist'); // muestra tabla, vacía o con mensaje "No hay observaciones registradas"
     });
+
+    it('El coordinador también puede consultar las observaciones del grupo (defecto corregido)', () => {
+      // Antes, GET /group/:idGrupo devolvía 403 a coordinador; observationsroutes.js ahora incluye
+      // requireRole('SUPER_ADMIN', 'coordinador', 'instructor') en esta ruta.
+      // Observaciones.jsx no restringe la ruta /instructor/observaciones por rol (solo oculta
+      // el botón "Registrar observación" cuando esInstructor es false), así que el coordinador
+      // puede entrar y consultar, pero no crear.
+      cy.loginComo(creds.coordinador.documento, creds.coordinador.password);
+      cy.visit('/instructor/observaciones');
+      cy.get('select').first().select(1);
+      cy.get('.obs-table').should('be.visible');
+      cy.contains('button', 'Registrar observación').should('not.exist');
+    });
   });
 
   // ── H27: Consultar historial de observaciones del aprendiz ──────────
