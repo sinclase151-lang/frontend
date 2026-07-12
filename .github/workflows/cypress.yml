@@ -1,1 +1,78 @@
-jj
+name: Cypress E2E Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ testCypress ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: toor
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout frontend (este repo)
+        uses: actions/checkout@v4
+        with:
+          path: frontend
+
+      - name: Checkout backend (repo separado)
+        uses: actions/checkout@v4
+        with:
+          repository: sinclase151-lang/backend
+          token: ${{ secrets.BACKEND_REPO_TOKEN }}
+          ref: main
+          path: backend
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cargar base de datos
+        run: mysql -h 127.0.0.1 -uroot -ptoor < backend/basededatos.sql
+
+      - name: Instalar dependencias backend
+        run: cd backend && npm install
+
+      - name: Levantar backend en segundo plano
+        run: cd backend && npm start &
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: sigma_mvp
+          DB_USER: root
+          DB_PASSWORD: toor
+          JWT_SECRET: test_secret
+          PORT: 3000
+
+      - name: Instalar dependencias frontend
+        run: cd frontend && npm install
+
+      - name: Levantar frontend en segundo plano
+        run: cd frontend && npm run dev &
+
+      - name: Esperar a que ambos respondan
+        run: npx wait-on http://localhost:3000 http://localhost:5173 --timeout 60000
+
+      - name: Correr pruebas Cypress
+        run: cd frontend && npx cypress run
+
+      - name: Guardar capturas si falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: frontend/cypress/screenshots
